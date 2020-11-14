@@ -1,0 +1,10 @@
+.result-row {
+  display: flex;
+  flex-direction: row
+}
+
+.result-img, .result-info{
+  flex: 1;
+  margin: 5px;
+  padding: 25px
+}

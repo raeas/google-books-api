@@ -5,7 +5,14 @@ import './searchBox.css';
 class SearchBox extends Component {
   render() {
     return (
-      <p>SearchBox Component</p>
+      <div className="search-box">
+        <form>
+          <label>
+            Search:
+          </label>
+          <input type="text"/>
+        </form>
+      </div>
     );
   }
 }

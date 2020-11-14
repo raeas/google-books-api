@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
+import SearchBox from '../searchBox/searchBox';
+import SearchFilter from '../searchFilter/searchFilter'
 import './searchBar.css';
 
 
 class SearchBar extends Component {
+
   render() {
     return (
-      <p>SearchBar Component</p>
+      <div>
+        <SearchBox />
+        <SearchFilter />
+      </div>
     );
   }
 }
