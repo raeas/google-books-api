@@ -1,19 +1,19 @@
-import React, { Component } from 'react';
-import SearchBox from '../searchBox/searchBox';
-import SearchFilter from '../searchFilter/searchFilter'
-import './searchBar.css';
+// import React, { Component } from 'react';
+// import SearchBox from '../searchBox/searchBox';
+// import SearchFilter from '../searchFilter/searchFilter'
+// import './searchBar.css';
 
 
-class SearchBar extends Component {
+// class SearchBar extends Component {
 
-  render() {
-    return (
-      <div>
-        <SearchBox />
-        <SearchFilter />
-      </div>
-    );
-  }
-}
+//   render() {
+//     return (
+//       <div>
+//         <SearchBox />
+//         <SearchFilter />
+//       </div>
+//     );
+//   }
+// }
 
-export default SearchBar;
+// export default SearchBar;
