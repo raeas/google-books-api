@@ -2,8 +2,16 @@ import React, { Component } from 'react'
 
 import "./App.css"
 import SearchBox from './searchBox/searchBox'
+import SearchFilter from './searchFilter/searchFilter'
 // import SearchBar from './searchBar/searchBar'
 // import ResultsList from './resultsList/resultsList'
+
+function formatQueryParams(params) {
+  const queryItems = Object.keys(params)
+  .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`);
+  return queryItems.join('&');
+};
+
 
 class App extends Component {
 
@@ -16,20 +24,28 @@ class App extends Component {
       bookType: ''
     }
     this.handleSearchUpdate = this.handleSearchUpdate.bind(this)
+    this.handleBookType = this.handleBookType.bind(this)
+    this.handlePrintType = this.handlePrintType.bind(this)
   }
   
-  handleSearchUpdate(term) {
+  handleSearchUpdate(searchInput) {
     this.setState({
-      searchTerm: term
+      searchTerm: searchInput
     })
-  }
 
-  componentDidMount(){
-    const searchQuery = this.state.searchTerm
     const apiKey = 'AIzaSyC97osYaU3RdqyJ__dCHyoKdcAEbiTz87E'
-    const url = `https://www.googleapis.com/books/v1/volumes?q=${searchQuery}+&key=${apiKey}`
-    console.log(url)
-    fetch(url)
+
+    const params = {
+      q: searchInput,
+      key: apiKey
+    }
+
+    const queryString = formatQueryParams(params)
+    const baseUrl = 'https://www.googleapis.com/books/v1/volumes';
+    const searchUrl = baseUrl + '?' + queryString;
+
+    console.log(searchUrl)
+    fetch(searchUrl)
       .then(response => {
         if(!response.ok) {
           throw new Error('Something went wrong, please try again later')
@@ -38,12 +54,11 @@ class App extends Component {
       })
       .then(response => response.json())
       .then(data => {
-        const results = Object.keys(data)
-          .map(key => data[key].item[0]);
         this.setState({
-          results,
+          results: data,
           error: null
         })
+        console.log(this.state.results)
       })
       .catch(err => {
         this.setState({
@@ -52,14 +67,29 @@ class App extends Component {
       })
   }
 
-  setSelected(selected) {
+  handleBookType = (event) => {
+    console.log(event)
+    console.log('handle bookType filter')
+    const {name, value} = event.target
+    console.log({name}, {value})
     this.setState({
-      selected
+      [name]: value
+    })
+  }
+
+  handlePrintType = (event) => {
+    console.log(event)
+    console.log('handle printType filter')
+    const {name, value} = event.target
+    console.log({name}, {value})
+    this.setState({
+      [name]: value
     })
   }
 
   render() {
     console.log(this.state.searchTerm)
+    console.log(this.state.results)
     return (
       <div>
         <header className="App-header">
@@ -67,6 +97,10 @@ class App extends Component {
         </header>
         <main className="App-main">
           <SearchBox handleSearch={this.handleSearchUpdate}/>
+          <SearchFilter 
+            handlePrintType={this.handlePrintType}
+            handleBookType={this.handleBookType}
+          />
           {/* <ResultsList results={this.state.results} /> */}
         </main>
       </div>
