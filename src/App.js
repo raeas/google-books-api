@@ -33,7 +33,7 @@ class App extends Component {
       searchTerm: searchInput
     })
 
-    const apiKey = 'AIzaSyC97osYaU3RdqyJ__dCHyoKdcAEbiTz87E'
+    const apiKey = 'API-Key'
 
     const params = {
       q: searchInput,
