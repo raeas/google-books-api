@@ -1,6 +1,8 @@
 .result-row {
   display: flex;
-  flex-direction: row
+  flex-direction: row;
+  border-bottom: 2px solid gray; 
+  padding: 50px;
 }
 
 .result-img, .result-info{

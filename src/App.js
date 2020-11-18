@@ -4,7 +4,7 @@ import "./App.css"
 import SearchBox from './searchBox/searchBox'
 import SearchFilter from './searchFilter/searchFilter'
 // import SearchBar from './searchBar/searchBar'
-// import ResultsList from './resultsList/resultsList'
+import ResultsList from './resultsList/resultsList'
 
 function formatQueryParams(params) {
   const queryItems = Object.keys(params)
@@ -33,11 +33,13 @@ class App extends Component {
       searchTerm: searchInput
     })
 
-    const apiKey = 'API-Key'
+    const apiKey = 'AIzaSyC97osYaU3RdqyJ__dCHyoKdcAEbiTz87E'
 
     const params = {
       q: searchInput,
-      key: apiKey
+      key: apiKey,
+      filter: this.state.bookType,
+      printType: this.state.printType
     }
 
     const queryString = formatQueryParams(params)
@@ -54,8 +56,9 @@ class App extends Component {
       })
       .then(response => response.json())
       .then(data => {
+        console.log("response data" ,data)
         this.setState({
-          results: data,
+          results: data.items,
           error: null
         })
         console.log(this.state.results)
@@ -101,7 +104,7 @@ class App extends Component {
             handlePrintType={this.handlePrintType}
             handleBookType={this.handleBookType}
           />
-          {/* <ResultsList results={this.state.results} /> */}
+          <ResultsList results={this.state.results} />
         </main>
       </div>
     );

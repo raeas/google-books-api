@@ -7,8 +7,8 @@ class SearchFilter extends Component {
   constructor() {
     super()
     this.state = {
-      printType: '',
-      bookType: ''
+      // printType: '',
+      // bookType: ''
     }
     // this.handleBookType = this.handleBookType.bind(this)
     // this.handlePrintType = this.handlePrintType.bind(this)
@@ -41,7 +41,7 @@ class SearchFilter extends Component {
               //when the onChange event happens the handlePrintType function is called with the event object as the argument. and passes it to the app component
               // onChange={event => this.props.handlePrintType(event.target.value)}>
               onChange={event => this.props.handlePrintType(event)}>
-              <option value="">Select Print Type</option>  
+              <option value="select-print-type">Select Print Type</option>  
               <option value="all">All</option>
               <option value="books">Books</option>
               <option value="magazines">Magazines</option>                
@@ -50,11 +50,11 @@ class SearchFilter extends Component {
           <label>
             Book Type:
             <select
-              value={this.state.bookType}
+              value={this.state.value}
               name="bookType"
               // onChange={event => this.props.handleBookType(event.target.value)}>
               onChange={event => this.props.handleBookType(event)}>
-              <option value="">Select Book Type</option>
+              <option value="select-book-type">Select Book Type</option>
               <option value="partial">Partial Text</option>
               <option value="full">Full Text</option>
               <option value="free-ebooks">Free eBooks</option>
