@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 import "./App.css"
 import SearchBox from './searchBox/searchBox'
 import SearchFilter from './searchFilter/searchFilter'
-// import SearchBar from './searchBar/searchBar'
 import ResultsList from './resultsList/resultsList'
 
 function formatQueryParams(params) {
@@ -104,7 +103,7 @@ class App extends Component {
             handlePrintType={this.handlePrintType}
             handleBookType={this.handleBookType}
           />
-          <ResultsList results={this.state.results} />
+          <ResultsList results={this.state.results}/>
         </main>
       </div>
     );

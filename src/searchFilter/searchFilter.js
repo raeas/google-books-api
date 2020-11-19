@@ -7,26 +7,10 @@ class SearchFilter extends Component {
   constructor() {
     super()
     this.state = {
-      // printType: '',
-      // bookType: ''
+      printType: '',
+      bookType: ''
     }
-    // this.handleBookType = this.handleBookType.bind(this)
-    // this.handlePrintType = this.handlePrintType.bind(this)
   }
-
-  // handleBookType(event) {
-  //   const {name, value} = event.target
-  //   this.setState({
-  //     [name]: value
-  //   })
-  // }
-
-  // handlePrintType(event) {
-  //   const {name, value} = event.target
-  //   this.setState({
-  //     [name]: value
-  //   })
-  // }
 
   render() {
     return (
