@@ -15,7 +15,7 @@ This project is an exercise for Thinkful's "API Requests" checkpoint
 
 ### Tech Stack
 * React.js
-* HTML
+* JSX
 * CSS
 * JavaScript
 
