@@ -4,7 +4,7 @@ This project is an exercise for Thinkful's "API Requests" checkpoint
 
 ## Module: Client-side programming with React
 
-### Objectives
+### Objective(s)
 * Make HTTP requests to REST APIs using Fetch in a React app.
 
 ### Requirements
@@ -13,5 +13,10 @@ This project is an exercise for Thinkful's "API Requests" checkpoint
 * Display the search result in list and optionally allow the user to click a result to see further details of the book.
 * Use the Google Books API to perform the search.
 
+### Tech Stack
+* React.js
+* HTML
+* CSS
+* JavaScript
 
 
